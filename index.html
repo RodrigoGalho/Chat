@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <title>Chat da Zuera</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body ng-controller="chatController">  	
+    <ul id="messages">
+    	<li ng-repeat="mensagem in mensagens">
+    		<div class="avatar">
+    			<img src="{{mensagem.avatar}}"/>
+    			<div class="nome">{{mensagem.nome}}</div>
+    		</div>    		 
+    		<p ng-bind-html-unsafe="mensagem.mensagem"></p>
+    	</li>
+    </ul>
+    <form action="" ng-submit="verificarMensagem()">
+      <input type="text" ng-model="msg" autocomplete="off" />
+      <input type="submit" value="ENVIAR">
+    </form>
+
+    <script src="js/socket.io.js"></script>
+    <script src="http://rodrigogalho.com.br/portfolio/jpanda/coder/dev/js/angular.min.js"></script>
+	<script src="js/chatController.js"></script>
+  </body>
+</html>
