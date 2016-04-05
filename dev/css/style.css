@@ -4,14 +4,20 @@
 	box-sizing: border-box; 
 }
 
-body { 
-	font: 13px Arial;
-	padding-bottom: 40px;  
-	display: table;
+ul{list-style: none;}
+
+body{ 
+	font: 13px Arial;  
 	background: #DCD7D3;
 }
 
-form { 
+.line{
+	border-top: 1px solid #EFEFEF;
+	border-bottom: 1px solid #E0E0E0;
+	margin: 10px 0;
+}
+
+.form-message{ 
 	background: #EAE8E7; 
 	padding: 10px; 
 	position: fixed; 
@@ -23,13 +29,70 @@ form {
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
 }
 
-form input[type=text] { 
+.form-message .mini-avatar{
+	width: 9%;
+	height: 40px;
+	float: left;
+	cursor: pointer;
+}
+
+.form-message .avatar-selection{
+	float: left;
+	height: inherit;
+	color: #CCC;
+	width: 20px;
+	line-height: 40px;
+	margin-left: 5px;
+}
+
+.form-message .mini-avatar img{height: 100%; float: left;}
+
+.form-message input[type=text] { 
 	border: 0; 
 	padding: 10px; 
-	width: 90%; 
+	width: 80%; 
 	margin-right: .5%; 
 	border-radius: 5px;
 	outline: none;
+}
+
+.mini-avatars{
+	width: 40%;
+	background: #EAE8E7;
+	position: absolute;
+	bottom: 81px;
+	left: 10%;
+	z-index: 9999;
+	padding: 15px;
+}
+
+.mini-avatars li{
+	float: left;
+	width: 8%;
+	margin: 1%;
+	text-align: center;
+	cursor: pointer;
+}
+
+.mini-avatars img{
+	width: 100%;
+}
+
+.mini-avatars hr{
+	margin-bottom: 5px;
+	background: #CCC;
+}
+
+.mini-avatars input[type=text]{
+	border: 1px solid #CCC;
+	border-radius: 10px;
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	outline: none;
+	font-size: 20px;
+	padding: 0 15px;
+	color: #999;
 }
 
 input[type=submit]{ 
@@ -44,37 +107,56 @@ input[type=submit]{
 #messages { 
 	list-style-type: none; 
 	margin: 0; 
-	padding: 10px; 
+	padding: 10px;
+	float: left;
+	width: 100%;
+	margin-bottom: 70px;
+}
+
+#messages li{
+	float: left;
+	width: 100%;
 }
 
 #messages .avatar{
-	display: inline-block;
-	padding: 20px;
+	float: left;
+	width: 30%;
+	max-width: 100px;
+	padding: 20px 0;
+	text-align: center;
+}
+
+#messages .avatar > img{
+	width: 100%;
+	max-width: 100px;
 }
 
 #messages .nome{
 	text-transform: uppercase;
 	color: #900;
 	font-weight: bold;
-	text-align: center;
 }
 
-#messages p{
-	display: inline-block;
-	min-width: 500px;
+#messages .message-conteiner{
+	float: left;
+	max-width: 500px;
+	width: 70%;
 	min-height: 120px;
 	font-family: 'comic sans ms';
 	color: #CCC;
 	font-size: 20px;
 	background: rgba(255, 255, 255, .9);
-	padding: 20px;
 	margin:  20px;
 	border-radius: 10px;
 	position: relative;
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, .3);
 }
 
-#messages p:before{
+.message-conteiner p{
+	padding: 20px;
+}
+
+#messages .message-conteiner:before{
 	position: absolute;
 	left: -10px;
 	top: 20px;
@@ -88,11 +170,5 @@ input[type=submit]{
 }
 
 
-#messages .avatar{
-	float: left;
-}
 
-#messages .avatar > img{
-	width: 100px;
-}
 

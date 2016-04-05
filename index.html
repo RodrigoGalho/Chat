@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" ng-app>
 <head>
-    <title>Chat da Zuera</title>
+    <title>Comic Chat</title>
+    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body ng-controller="chatController">  	
+  <body ng-controller="chatController">
+    <div class="mini-avatars" ng-show="showAvatars">
+      <input type="text" ng-model="user.nome">
+      <div class="line"></div>
+      <ul>
+        <li ng-repeat="miniAvatar in avatars" ng-click="mudaAvatar(miniAvatar.url)">
+          <img ng-src="{{miniAvatar.url}}" alt="{{miniAvatar.nome}}" title="{{miniAvatar.nome}}">
+        </li>
+      </ul>
+    </div>
     <ul id="messages">
     	<li ng-repeat="mensagem in mensagens">
     		<div class="avatar">
-    			<img src="{{mensagem.avatar}}"/>
+    			<img ng-src="{{mensagem.avatar}}"/>
     			<div class="nome">{{mensagem.nome}}</div>
-    		</div>    		 
-    		<p ng-bind-html-unsafe="mensagem.mensagem"></p>
+    		</div>
+        <div class="message-conteiner">
+    		  <p ng-bind-html-unsafe="mensagem.mensagem"></p>          
+        </div>         
     	</li>
     </ul>
-    <form action="" ng-submit="verificarMensagem()">
+    <form class="form-message" ng-submit="verificarMensagem()">      
+      <div class="mini-avatar" ng-click="showAvatars=!showAvatars">
+        <img ng-src="{{user.avatar}}" alt="{{avatar.nome}}" title="{{avatar.nome}}">
+        <div class="avatar-selection">&#9660;</div>
+      </div>
       <input type="text" ng-model="msg" autocomplete="off" />
       <input type="submit" value="ENVIAR">
     </form>
 
     <script src="js/socket.io.js"></script>
     <script src="http://rodrigogalho.com.br/portfolio/jpanda/coder/dev/js/angular.min.js"></script>
-	<script src="js/chatController.js"></script>
+	  <script src="js/chatController.js"></script>
   </body>
 </html>
